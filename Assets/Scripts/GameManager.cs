@@ -28,6 +28,8 @@ namespace Game
             }
         }
 
+        public bool IsPlayed { get; private set; } = false;
+
         protected override GameManager LocalInstance => this;
 
         public void GoToMainMenu()
