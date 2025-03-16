@@ -1,17 +1,22 @@
+#if UNITY_EDITOR
+
 #nullable enable
 
-namespace Game;
-
-using UnityEditor;
-using UnityEngine;
-
-[CustomPropertyDrawer(typeof(ReadOnlyInInspectorAttribute))]
-public sealed class ReadOnlyInInspectorDrawer : PropertyDrawer
+namespace Game
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    using UnityEditor;
+    using UnityEngine;
+
+    [CustomPropertyDrawer(typeof(ReadOnlyInInspectorAttribute))]
+    public sealed class ReadOnlyInInspectorDrawer : PropertyDrawer
     {
-        GUI.enabled = false;
-        EditorGUI.PropertyField(position, property, label, true);
-        GUI.enabled = true;
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            GUI.enabled = false;
+            EditorGUI.PropertyField(position, property, label, true);
+            GUI.enabled = true;
+        }
     }
 }
+
+#endif
