@@ -578,6 +578,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730f223ad9138a2418be899f317ef1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1227682907}
+  <BaseScoreSpeed>k__BackingField: 10
+  <ScoreAcceleration>k__BackingField: 1
+  <CurrentScoreSpeed>k__BackingField: 0
+  <BaseLevelSpeed>k__BackingField: 20
+  <LevelAcceleration>k__BackingField: 1.5
+  <CurrentLevelSpeed>k__BackingField: 1
 --- !u!1 &649985634
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,7 +5699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b64169581317e94382b160a1a08102c, type: 2}
   m_sharedMaterial: {fileID: 1926441206597424417, guid: 6b64169581317e94382b160a1a08102c, type: 2}

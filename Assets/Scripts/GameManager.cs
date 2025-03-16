@@ -13,7 +13,7 @@ namespace Game
 
         public string HighScorePrefKey { get; } = "HighScore";
 
-        public int CurrentScore { get; private set; } = 0;
+        public int CurrentScore { get; set; } = 0;
 
         public int HighScore
         {
@@ -34,6 +34,7 @@ namespace Game
 
         public void GoToMainMenu()
         {
+            this.IsPlayed = true;
             SceneManager.LoadScene(this.MainMenuSceneName);
         }
 
