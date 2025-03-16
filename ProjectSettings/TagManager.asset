@@ -47,7 +47,7 @@ TagManager:
   - name: Obstacle
     uniqueID: 390847525
     locked: 0
-  - name: PlayerParticle
+  - name: Explosion
     uniqueID: 3039356385
     locked: 0
   m_RenderingLayers:

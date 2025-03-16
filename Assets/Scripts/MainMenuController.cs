@@ -33,7 +33,8 @@ namespace Game
         private AnimationCurve speedCurve = null!;
 
         [field: SerializeField]
-        private float animationTime = 0;
+        [field: Range(0.5F, 3.0F)]
+        public float AnimationTime { get; private set; } = 1.0F;
 
         public void OnPlayButtonClicked()
         {
@@ -46,7 +47,7 @@ namespace Game
             var gameManager = GameManager.Instance;
             var currentScore = gameManager.CurrentScore;
             var highScore = gameManager.HighScore;
-            if (currentScore < highScore)
+            if (currentScore > highScore)
             {
                 this.newBestText.enabled = true;
                 gameManager.HighScore = currentScore;
@@ -60,9 +61,9 @@ namespace Game
             this.highScoreText.text = highScore.ToString();
 
             int tempScore = 0;
-            var animationSpeed = 1.0F / this.animationTime;
+            var animationSpeed = 1.0F / this.AnimationTime;
             var timeElasped = 0.0F;
-            while (timeElasped < this.animationTime)
+            while (timeElasped < this.AnimationTime)
             {
                 timeElasped += animationSpeed * Time.deltaTime;
 

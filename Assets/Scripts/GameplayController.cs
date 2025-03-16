@@ -46,6 +46,16 @@ namespace Game
         [field: ReadOnlyInInspector]
         public float CurrentLevelSpeed { get; private set; } = 1.0F;
 
+        [field: Header("Obstacle controller")]
+        [field: SerializeReference]
+        [field: ResolveComponentInChildren("Obstacle")]
+        public ObstacleController ObstacleController { get; private set; } = null!;
+
+        [field: Header("Player controller")]
+        [field: SerializeReference]
+        [field: ResolveComponentInChildren("Player")]
+        public PlayerController PlayerController { get; private set; } = null!;
+
         public bool HasGameFinished { get; private set; } = false;
 
         public void EndGame()

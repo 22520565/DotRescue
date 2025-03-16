@@ -40,6 +40,10 @@ namespace Game
 
         [field: SerializeField]
         [field: ReadOnlyInInspector]
+        public float RotationSpeed { get; private set; } = 2.0F;
+
+        [field: SerializeField]
+        [field: ReadOnlyInInspector]
         public float CurrentRotationSpeed { get; private set; } = 2.0F;
 
         [field: Header("Time info")]
@@ -63,12 +67,9 @@ namespace Game
         {
             this.CurrentRotationTimer = Random.Range(this.MinRotationTime, this.MaxRotationTime);
             this.BaseRotationSpeed = Random.Range(this.MinBaseRotationSpeed, this.MaxBaseRotationSpeed);
-            this.CurrentRotationSpeed = this.BaseRotationSpeed * this.gameplayController.CurrentLevelSpeed * this.RotatonSpeedScaleToLevelSpeed;
-            this.CurrentRotationSpeed = Mathf.Clamp(this.CurrentRotationSpeed, this.MinRotationSpeed, this.MaxRotationSpeed);
-            if (this.IsRotatingClockwise)
-            {
-                this.CurrentRotationSpeed = -this.CurrentRotationSpeed;
-            }
+            this.RotationSpeed = this.BaseRotationSpeed * this.gameplayController.CurrentLevelSpeed * this.RotatonSpeedScaleToLevelSpeed;
+            this.RotationSpeed = Mathf.Clamp(this.RotationSpeed, this.MinRotationSpeed, this.MaxRotationSpeed);
+            this.CurrentRotationSpeed = this.IsRotatingClockwise ? -this.RotationSpeed : this.RotationSpeed;
         }
 
         private void Update()
@@ -86,12 +87,9 @@ namespace Game
                 this.BaseRotationSpeed = Random.Range(this.MinBaseRotationSpeed, this.MaxBaseRotationSpeed);
             }
 
-            this.CurrentRotationSpeed = this.BaseRotationSpeed * this.gameplayController.CurrentLevelSpeed * this.RotatonSpeedScaleToLevelSpeed;
-            this.CurrentRotationSpeed = Mathf.Clamp(this.CurrentRotationSpeed, this.MinRotationSpeed, this.MaxRotationSpeed);
-            if (this.IsRotatingClockwise)
-            {
-                this.CurrentRotationSpeed = -this.CurrentRotationSpeed;
-            }
+            this.RotationSpeed = this.BaseRotationSpeed * this.gameplayController.CurrentLevelSpeed * this.RotatonSpeedScaleToLevelSpeed;
+            this.RotationSpeed = Mathf.Clamp(this.RotationSpeed, this.MinRotationSpeed, this.MaxRotationSpeed);
+            this.CurrentRotationSpeed = this.IsRotatingClockwise ? -this.RotationSpeed : this.RotationSpeed;
         }
 
         private void FixedUpdate()
