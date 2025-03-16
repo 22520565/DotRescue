@@ -4,7 +4,7 @@ namespace Game
 {
     using UnityEngine;
 
-    public class GameplayManager : MonoBehaviour
+    public class GameplayController : MonoBehaviour
     {
     }
 }
