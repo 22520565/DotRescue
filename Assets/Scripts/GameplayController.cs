@@ -39,6 +39,10 @@ namespace Game
         public float LevelAcceleration { get; private set; } = 1.0F;
 
         [field: SerializeField]
+        [field: Range(100.0F, 1000.0F)]
+        public float MaxLevelSpeed { get; private set; } = 500.0F;
+
+        [field: SerializeField]
         [field: ReadOnlyInInspector]
         public float CurrentLevelSpeed { get; private set; } = 1.0F;
 
@@ -77,6 +81,7 @@ namespace Game
 
             this.CurrentScoreSpeed += this.ScoreAcceleration * deltaTime;
             this.CurrentLevelSpeed += this.LevelAcceleration * deltaTime;
+            this.CurrentLevelSpeed = Mathf.Min(this.CurrentLevelSpeed, this.MaxLevelSpeed);
         }
     }
 }
